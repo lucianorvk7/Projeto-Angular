@@ -13,10 +13,8 @@ export class AppComponent {
 
   constructor (private pessoasService: PessoasService) {}
 
-  ngOnInit() {
-    this.people = this.pessoasService.buscarTodasPessoas();
-  }
   
+
   novaFuncao() {
     console.log('Nova Funcão');
     this.title = 'Novo Titulo';

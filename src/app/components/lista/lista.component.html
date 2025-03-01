@@ -24,10 +24,14 @@
               <td class="lista-title"><i class="fas fa-city me-2"></i>{{ people.cidade }}</td>
               <td class="lista-title"><i class="fas fa-flag me-2"></i>{{ people.uf }}</td>
               <td class="text-center col-1.2">
-                <button type="button" class=" m btn btn-primary " ><i class="fa fa-pencil me-1" aria-hidden="true"></i>Editar</button>
+                <a [routerLink]="['/editar-pessoa', people.id]">
+                  <button type="button" class="btn btn-primary"><i class="fas fa-edit me-1" aria-hidden="true"></i>Editar</button>
+                </a>
               </td>
               <td class="text-center col-1.2 ">
-                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt me-1" aria-hidden="true"></i>Deletar</button>
+                <a [routerLink]="['/deletar-pessoa', people.id]">
+                  <button type="button" class="btn btn-danger"><i class="fas fa-edit me-1" aria-hidden="true"></i>Deletar</button>
+                </a>  
               </td>
             </tr>
           </tbody>

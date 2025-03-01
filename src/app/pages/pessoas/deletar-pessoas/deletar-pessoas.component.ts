@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-deletar-pessoas',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./deletar-pessoas.component.scss']
 })
 export class DeletarPessoasComponent {
+  id: string = '';
+  
+    constructor(private route: ActivatedRoute){ }
 
+    ngOnInit(){
+      this.id = this.route.snapshot.params['id'];
+    }
 }
