@@ -1,47 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { IResponse } from '../interfaces/response';
+
+
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PessoasService {
-  people = [
-    {
-      id: 1,
-      name: 'Luciano',
-      cep: '01313-000',
-      endereco: 'Av: 9 de julho',
-      cidade: 'São Paulo',
-      uf: "SP",
-    },
-    {
-      id: 2,
-      name: 'Marta',
-      cep: '01414-000',
-      endereco: 'Av: 9 de julho',
-      cidade: 'São Paulo',
-      uf: "SP",
-    },
-    {
-      id: 3,
-      name: 'Nadia',
-      cep: '01515-000',
-      endereco: 'Av: 9 de julho',
-      cidade: 'São Paulo',
-      uf: "SP",
-    },
-    {
-      id: 4,
-      name: 'Junior',
-      cep: '01616-000',
-      endereco: 'Av: 9 de julho',
-      cidade: 'São Paulo',
-      uf: "SP",
-    },
-  ];
+  url = environment.url;
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
-
-  buscarTodasPessoas(){
-    return this.people;
+  buscarTodasPessoas() {
+    return this.http.get<IResponse>(`${this.url}products`);
   }
 }

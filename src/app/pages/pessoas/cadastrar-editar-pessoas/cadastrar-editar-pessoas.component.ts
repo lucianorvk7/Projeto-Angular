@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ContatosService } from '../../../services/contatos.service';
 
 @Component({
   selector: 'app-cadastrar-editar-pessoas',
@@ -14,4 +15,7 @@ export class CadastrarEditarPessoasComponent {
   ngOnInit(){
     this.id = this.route.snapshot.params['id'];
   }
+
+  contatosService = inject(ContatosService);
+
 }

@@ -4,6 +4,8 @@ import { ListagemPessoasComponent } from './pages/pessoas/listagem-pessoas/lista
 import { ListagemContatosComponent } from './pages/contatos/listagem-contatos/listagem-contatos.component';
 import { CadastrarEditarPessoasComponent } from './pages/pessoas/cadastrar-editar-pessoas/cadastrar-editar-pessoas.component';
 import { DeletarPessoasComponent } from './pages/pessoas/deletar-pessoas/deletar-pessoas.component';
+import { PesquisarPessoasComponent } from './pages/pessoas/pesquisar-pessoas/pesquisar-pessoas.component';
+import { CadastrarEditarContatosComponent } from './pages/contatos/cadastrar-editar-contatos/cadastrar-editar-contatos.component';
 
 const routes: Routes = [
   {
@@ -13,13 +15,19 @@ const routes: Routes = [
     path: "contatos", component: ListagemContatosComponent
   },
   {
-    path: 'cadastrar6-pessoa', component: CadastrarEditarPessoasComponent
+    path: 'cadastrar-pessoa', component: CadastrarEditarPessoasComponent
   },
   {
     path: 'editar-pessoa/:id', component: CadastrarEditarPessoasComponent
   },
   {
     path: 'deletar-pessoa/:id', component: DeletarPessoasComponent
+  },
+  {
+    path: 'pesquisar-pessoa/:id', component: PesquisarPessoasComponent
+  },
+  {
+    path: 'cadastrar-contato', component: CadastrarEditarContatosComponent
   }
 ];
 

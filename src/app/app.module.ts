@@ -17,16 +17,28 @@ import { PesquisarContatosComponent } from './pages/contatos/pesquisar-contatos/
 import { ListagemContatosComponent } from './pages/contatos/listagem-contatos/listagem-contatos.component';
 import { DeletarContatosComponent } from './pages/contatos/deletar-contatos/deletar-contatos.component';
 import { ListaComponent } from './components/lista/lista.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent, ListagemPessoasComponent, CadastrarEditarPessoasComponent, PesquisarPessoasComponent, MalaDiretaComponent, DeletarPessoasComponent, CadastrarEditarContatosComponent, PesquisarContatosComponent, ListagemContatosComponent, DeletarContatosComponent, ListaComponent],
+    FooterComponent, 
+    ListagemPessoasComponent, 
+    CadastrarEditarPessoasComponent, 
+    PesquisarPessoasComponent, 
+    MalaDiretaComponent, 
+    DeletarPessoasComponent, 
+    CadastrarEditarContatosComponent,
+    PesquisarContatosComponent, 
+    ListagemContatosComponent, 
+    DeletarContatosComponent, 
+    ListaComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [PessoasService, ContatosService],
   bootstrap: [AppComponent],
