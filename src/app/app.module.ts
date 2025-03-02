@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { PessoasService } from './services/pessoas.service';
 import { ContatosService } from './services/contatos.service';
@@ -22,22 +22,23 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent, 
-    ListagemPessoasComponent, 
-    CadastrarEditarPessoasComponent, 
-    PesquisarPessoasComponent, 
-    MalaDiretaComponent, 
-    DeletarPessoasComponent, 
+    FooterComponent,
+    ListagemPessoasComponent,
+    CadastrarEditarPessoasComponent,
+    PesquisarPessoasComponent,
+    MalaDiretaComponent,
+    DeletarPessoasComponent,
     CadastrarEditarContatosComponent,
-    PesquisarContatosComponent, 
-    ListagemContatosComponent, 
-    DeletarContatosComponent, 
+    PesquisarContatosComponent,
+    ListagemContatosComponent,
+    DeletarContatosComponent,
     ListaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [PessoasService, ContatosService],

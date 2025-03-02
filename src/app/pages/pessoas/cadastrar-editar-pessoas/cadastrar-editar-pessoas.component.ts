@@ -1,6 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContatosService } from '../../../services/contatos.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IPeople } from 'src/app/interfaces/people';
+import { PessoasService } from '../../../services/pessoas.service';
+
 
 @Component({
   selector: 'app-cadastrar-editar-pessoas',
@@ -9,13 +13,28 @@ import { ContatosService } from '../../../services/contatos.service';
 })
 export class CadastrarEditarPessoasComponent {
   id: string = '';
+  formGroupPessoas: FormGroup = new FormGroup({
+    nome: new FormControl('', [Validators.required]),
+    cep: new FormControl(''),
+    endereco: new FormControl(''),
+    cidade: new FormControl(''),
+    uf: new FormControl('')
+ });
 
-  constructor(private route: ActivatedRoute){ }
+  constructor(private readonly route: ActivatedRoute, private readonly pessoasService: PessoasService){ }
 
   ngOnInit(){
     this.id = this.route.snapshot.params['id'];
   }
 
-  contatosService = inject(ContatosService);
+  cadastrarPessoa(){
+    const pessoa: IPeople = this.formGroupPessoas.value;
+
+    this.pessoasService.cadastrarPessoa(pessoa).subscribe((response) => {
+      console.log(response);
+    });
+
+    console.log(this.formGroupPessoas.value);
+  }
 
 }

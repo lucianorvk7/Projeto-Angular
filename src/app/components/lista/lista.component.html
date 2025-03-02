@@ -17,10 +17,10 @@
             </tr>
           </thead>
           <tbody>
-            
+
             <tr *ngFor="let people of people; let i = index">
               <th scope="row">{{ i + 1 }}</th>
-              <td class="lista-title"><i class="fas fa-user me-2"></i>{{ people.name | uppercase }}</td>
+              <td class="lista-title"><i class="fas fa-user me-2"></i>{{ people.nome | uppercase }}</td>
               <td class="lista-title"><i ></i>
               <a class="btn btn-secondary"(click)="adicionarContato()">contato</a>
               </td>
@@ -36,7 +36,7 @@
               <td class="text-center col-1.2 ">
                 <a [routerLink]="['/deletar-pessoa', people.id]">
                   <button type="button" class="btn btn-danger"><i class="fas fa-edit me-1" aria-hidden="true"></i>Deletar</button>
-                </a>  
+                </a>
               </td>
             </tr>
           </tbody>

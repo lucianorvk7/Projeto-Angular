@@ -1,3 +1,3 @@
 export const environment = {
-  url: 'https://dummyjson.com/',
+  url: 'https://dummyjson.com',
 };
