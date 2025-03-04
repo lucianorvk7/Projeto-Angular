@@ -19,8 +19,13 @@ export class PessoasService {
     return this.http.get<IResponse>(`${this.url}/products`);
   }
 
+  buscarPessoaPorId(id: string ){
+    return this.http.get<IPeople>(`${this.url}/products/${id}`);
+  }
+
   cadastrarPessoa(pessoa: IPeople){
     return this.http.post(`${this.url}/products/add`, pessoa);
   }
+
 
 }
