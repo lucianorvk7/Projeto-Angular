@@ -1,8 +1,11 @@
+import { IContatos } from "./contatos";
+
 export interface IPeople {
-  id: number;
+  id?: number;
   nome: string;
-  cep?: string;
-  endereco?: string;
-  cidade?: string;
-  uf?: string;
+  cep: string;
+  endereco: string;
+  cidade: string;
+  uf: string;
+  contatos: IContatos[];
 }

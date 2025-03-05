@@ -32,6 +32,9 @@
             "styles": [
               "src/styles.scss"
             ],
+            "allowedCommonJsDependencies": [
+              "sweetalert2"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -64,6 +67,11 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4200,
+            "disableHostCheck": true
+            
+          },       
           "configurations": {
             "production": {
               "browserTarget": "Controle-Contatos:build:production"
@@ -105,4 +113,5 @@
   "cli": {
     "analytics": "1c392bfb-7ff9-4920-9856-71d291e6358b"
   }
+  
 }

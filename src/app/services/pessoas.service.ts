@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { IResponse } from '../interfaces/response';
 import { Observable } from 'rxjs';
 import { IPeople } from '../interfaces/people';
 
@@ -15,16 +14,16 @@ export class PessoasService {
 
   constructor(private http: HttpClient) {}
 
-  buscarTodasPessoas(): Observable<IResponse> {
-    return this.http.get<IResponse>(`${this.url}/products`);
+  buscarTodasPessoas(): Observable<IPeople[]> {
+    return this.http.get<IPeople[]>('http://localhost:8080/api/pessoa');
   }
 
   buscarPessoaPorId(id: string ){
-    return this.http.get<IPeople>(`${this.url}/products/${id}`);
+    return this.http.get<IPeople>(`http://localhost:8080/api/pessoa${id}`);
   }
 
   cadastrarPessoa(pessoa: IPeople){
-    return this.http.post(`${this.url}/products/add`, pessoa);
+    return this.http.post(`http://localhost:8080/api/pessoa/add`, pessoa);
   }
 
 

@@ -9,7 +9,7 @@ import { CadastrarEditarContatosComponent } from './pages/contatos/cadastrar-edi
 
 const routes: Routes = [
   {
-    path: "pessoas", component: ListagemPessoasComponent
+    path: "home", component: ListagemPessoasComponent
   },
   {
     path: "contatos", component: ListagemContatosComponent

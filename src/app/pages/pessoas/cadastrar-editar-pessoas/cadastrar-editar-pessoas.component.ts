@@ -39,7 +39,7 @@ export class CadastrarEditarPessoasComponent {
     this.pessoasService.cadastrarPessoa(pessoa).subscribe((response) => {
       console.log(response);
       Swal.fire('Sucesso', 'Pessoa cadastrada com sucesso', 'success');
-      this.router.navigate(['/pessoas']);
+      this.router.navigate(['/pessoa']);
     });
 
     console.log(this.formGroupPessoas.value);

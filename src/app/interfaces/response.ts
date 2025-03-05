@@ -2,7 +2,7 @@ import { IPeople } from './people';
 
 export interface IResponse {
   limit: number;
-  products: IPeople[];
+  pessoa:  IPeople[];
   skip: number;
   total: number;
 }
