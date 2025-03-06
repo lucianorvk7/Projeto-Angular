@@ -19,11 +19,14 @@ export class PessoasService {
   }
 
   buscarPessoaPorId(id: string ){
-    return this.http.get<IPeople>(`http://localhost:8080/api/pessoa${id}`);
+    return this.http.get<IPeople>(`${this.url}/pessoa/${id}`);
   }
 
   cadastrarPessoa(pessoa: IPeople){
-    return this.http.post(`http://localhost:8080/api/pessoa/add`, pessoa);
+    return this.http.post(`http://localhost:8080/api/pessoa`, pessoa);
+  }
+  editarPessoa(id: string, pessoa: IPeople) {
+    return this.http.put(`${this.url}/pessoa/${id}`, pessoa); 
   }
 
 

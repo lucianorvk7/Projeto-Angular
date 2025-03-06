@@ -1,8 +1,10 @@
 import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { ContatosService } from 'src/app/services/contatos.service';
 import { IContatos } from '../../../interfaces/contatos';
+import { ContatosService } from 'src/app/services/contatos.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-cadastrar-editar-contatos',
@@ -11,25 +13,30 @@ import { IContatos } from '../../../interfaces/contatos';
 })
 export class CadastrarEditarContatosComponent {
 
-  contatosService = inject(ContatosService);
   id: string = '';
-
+  
   formGroupContatos: FormGroup = new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      tipo: new FormControl(''),
-      contato: new FormControl(''),
-      people: new FormControl(''),
+      tipo: new FormControl('', [Validators.required]),
+      contato: new FormControl('', [Validators.required])
    });
 
-  constructor(private route: ActivatedRoute){ }
+  constructor(private contatosService: ContatosService, private route: ActivatedRoute, private router: Router){ }
 
-  ngOnInit(){
-    this.id = this.route.snapshot.params['id'];
-  }
-
+  
+  
   cadastrarContato(){
     const contato: IContatos= this.formGroupContatos.value;
-
-    console.log(this.formGroupContatos.value);
+    
+    this.contatosService.cadastrarContatos(contato).subscribe({ 
+      next:(response: any) => {
+      console.log("Contato cadastrado com sucesso!", response);
+      Swal.fire('Sucesso', 'Contato cadastrado com sucesso', 'success');
+      this.router.navigate(['/contatos']);
+      }, 
+      error: (error: any) => {
+        console.error("Erro ao cadastrar contatos", error);
+      }
+    });
+  
   }
 }

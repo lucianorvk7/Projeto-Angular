@@ -13,11 +13,6 @@ export class AppComponent {
 
   constructor (private pessoasService: PessoasService) {}
 
-
-  
-
-  
-
   novaFuncao() {
     console.log('Nova Funcão');
     this.title = 'Novo Titulo';

@@ -1,22 +1,17 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { IContatos } from '../interfaces/contatos';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContatosService {
-  buscarTodosContatos() {
-    throw new Error('Method not implemented.');
-  }
+  url = environment.url;
 
-  dadosContatos: any[] = [];
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
-
-  adicionarContato(item: any) {
-    this.dadosContatos.push(item);
-
-    console.log('Item adicionado com sucesso!', item);
-  }
-
+  cadastrarContatos(contato: IContatos){
+      return this.http.post(`http://localhost:8080/api/contatos`, contato);
+    }
 }

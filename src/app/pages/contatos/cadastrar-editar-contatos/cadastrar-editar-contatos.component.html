@@ -1,14 +1,7 @@
-<h1>Cadastro e Edição: {{ id }}</h1>
+<h1>
+  {{ id ? 'Editar' : 'Cadastrar' }}
+</h1>
 <form [formGroup]='formGroupContatos' (submit)="cadastrarContato()">
-  <div class="mb-3">
-    <label for="id" class="form-label">ID</label>
-    <input
-      formControlName="id"
-      type="number"
-      class="form-control"
-      id="exampleInputEmail1"
-    />
-  </div>
   <div class="mb-3">
     <label for="tipo" class="form-label">Tipo</label>
     <input
@@ -27,25 +20,17 @@
       id="exampleInputEmail1"
     />
   </div>
-  <div class="mb-3">
-    <label for="people" class="form-label">Pessoa</label>
-    <input
-      formControlName="people"
-      type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-    />
-  </div>
+  
 
   <button
     type="submit"
     class="btn btn-primary"
     [disabled]="!formGroupContatos.valid"
   >
-    Salvar
+    {{ id ? 'Editar' : 'Cadastrar' }}
   </button>
 </form>
 
 {{ formGroupContatos.value| json }}
 {{ formGroupContatos.valid }}
-{{contatosService.dadosContatos | json}}
+<!-- {{contatosService.dadosContatos | json}} -->

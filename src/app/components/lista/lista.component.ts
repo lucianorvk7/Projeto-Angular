@@ -14,6 +14,8 @@ export class ListaComponent  {
   contatosService = inject(ContatosService);
 
   adicionarContato() {
-   this.contatosService.adicionarContato(this.people);
+    console.log(this.people)
+   this.contatosService.cadastrarContatos(this.people[0]);
   }
 }
+

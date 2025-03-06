@@ -15,14 +15,10 @@ export class ListagemPessoasComponent {
   constructor(private pessoasService: PessoasService) {}
 
   ngOnInit() {
-    console.log("Chamando API:", this.pessoasService.url + "/pessoa");
-
-    this.pessoasService.buscarTodasPessoas().subscribe({
-      next:(response: IPeople[]) => {
-        console.log("📌 [DEBUG] Dados recebidos:", response);
-        this.people = response;
-        
-      },
+   this.pessoasService.buscarTodasPessoas().subscribe({
+      next:(pessoa: IPeople[]) => {
+        this.people = pessoa;
+     },
       error: (error) => {
         console.error(error.message);
         console.error("❌ [ERRO API]:", error);

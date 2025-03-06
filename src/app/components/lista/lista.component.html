@@ -21,20 +21,20 @@
             <tr *ngFor="let people of people; let i = index">
               <th scope="row">{{ i + 1 }}</th>
               <td class="lista-title"><i class="fas fa-user me-2"></i>{{ people.nome | uppercase }}</td>
-              <td class="lista-title"><i ></i>
-              <a class="btn btn-secondary"(click)="adicionarContato()">contato</a>
+              <td class="lista-title">
+                <a class="btn btn-secondary" [routerLink]="['/cadastrar-contato']">Contato</a>
               </td>
               <td class="lista-title"><i class="fas fa-map-marker-alt me-2"></i>{{ people.cep }}</td>
               <td class="lista-title"><i class="fas fa-home me-2"></i>{{ people.endereco }}</td>
               <td class="lista-title"><i class="fas fa-city me-2"></i>{{ people.cidade }}</td>
               <td class="lista-title"><i class="fas fa-flag me-2"></i>{{ people.uf }}</td>
               <td class="text-center col-1.2">
-                <a [routerLink]="['/pessoa', people.id]">
+                <a [routerLink]="['/editar-pessoa', people.id]">
                   <button type="button" class="btn btn-primary"><i class="fas fa-edit me-1" aria-hidden="true"></i>Editar</button>
                 </a>
               </td>
               <td class="text-center col-1.2 ">
-                <a [routerLink]="['/pessoa', people.id]">
+                <a [routerLink]="['/deletar-pessoa', people.id]">
                   <button type="button" class="btn btn-danger"><i class="fas fa-edit me-1" aria-hidden="true"></i>Deletar</button>
                 </a>
               </td>

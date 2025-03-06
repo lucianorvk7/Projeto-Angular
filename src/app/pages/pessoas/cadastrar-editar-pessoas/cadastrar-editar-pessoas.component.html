@@ -1,12 +1,14 @@
-<h1>Cadastro e Edição: {{ id }}</h1>
-<form [formGroup]='formGroupPessoas' (submit)="cadastrarPessoa()">
+<h1> 
+  {{ id ? 'Editar' : 'Cadastrar' }}
+</h1>
+<form [formGroup]='formGroupPessoas' (submit)="salvarPessoa()">
   <div class="mb-3">
     <label for="nome" class="form-label">Nome</label>
     <input
       formControlName="nome"
       type="text"
       class="form-control"
-      id="exampleInputEmail1"
+      id="nome"
     />
   </div>
   <div class="mb-3">
@@ -15,7 +17,7 @@
       formControlName="cep"
       type="text"
       class="form-control"
-      id="exampleInputEmail1"
+      id="cep"
     />
   </div>
   <div class="mb-3">
@@ -24,7 +26,7 @@
       formControlName="endereco"
       type="text"
       class="form-control"
-      id="exampleInputEmail1"
+      id="endereco"
     />
   </div>
   <div class="mb-3">
@@ -33,7 +35,7 @@
       formControlName="cidade"
       type="text"
       class="form-control"
-      id="exampleInputEmail1"
+      id="cidade"
     />
   </div>
   <div class="mb-3">
@@ -42,7 +44,7 @@
       formControlName="uf"
       type="text"
       class="form-control"
-      id="exampleInputEmail1"
+      id="uf"
     />
   </div>
   <button
@@ -50,9 +52,10 @@
     class="btn btn-primary"
     [disabled]="!formGroupPessoas.valid"
   >
-    Salvar
+  {{ id ? 'Editar' : 'Cadastrar' }}
   </button>
 </form>
 
 {{ formGroupPessoas.value| json }}
 {{ formGroupPessoas.valid }}
+
